@@ -10,9 +10,12 @@ const authRoutes = require("../src/routes/userAuth");
 const adminRoutes = require("./routes/admin");
 const meRoutes = require("./routes/me");
 const ticketRoutes = require("./routes/tickets");
+const webhookRoutes = require("./routes/webhook");
 
 app.get("/", (req, res) => res.send("Backend API working!"));
 
+
+app.use("/webhook", webhookRoutes);
 app.use("/api/tickets", ticketRoutes);
 app.use("/me", meRoutes);
 app.use("/admin", adminRoutes);
@@ -28,3 +31,7 @@ mongoose
     app.listen(PORT, () => console.log(`Server running on port : ${PORT}`));
   })
   .catch((err) => console.log(err));
+
+
+
+module.exports = app; 

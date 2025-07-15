@@ -13,7 +13,9 @@ export default defineConfig({
       shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
+  // PostCSS configuration is handled by postcss.config.js
   server: {
     port: 5173,
+    strictPort: false,
   },
 });

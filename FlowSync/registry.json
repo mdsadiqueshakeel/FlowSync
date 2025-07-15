@@ -1,0 +1,28 @@
+[
+  {
+    "tenant": "tenant-logistics",
+    "screens": {
+      "User": [
+        { "name": "Support Tickets", "url": "support-tickets" }
+      ],
+      "Admin": [
+        { "name": "Support Tickets", "url": "support-tickets" },
+        { "name": "Admin Dashboard", "url": "admin-dashboard" },
+         { "name": "Audit Log", "url": "audit-log" } 
+      ]
+    }
+  },
+  {
+    "tenant": "tenant-retail",
+    "screens": {
+      "User": [
+        { "name": "Support Tickets", "url": "support-tickets" }
+      ],
+      "Admin": [
+        { "name": "Support Tickets", "url": "support-tickets" },
+        { "name": "Admin Dashboard", "url": "admin-dashboard" },
+         { "name": "Audit Log", "url": "audit-log" } 
+      ]
+    }
+  }
+]

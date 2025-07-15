@@ -1,5 +1,6 @@
 const express = require("express");
 const Ticket = require("../models/Ticket");
+const logAudit = require("../utils/logAudit");
 
 exports.ticket = async (req, res) => {
   const { title } = req.body;
@@ -10,6 +11,13 @@ exports.ticket = async (req, res) => {
       status: "Pending",
       createdBy: req.user.id,
       customerId: req.user.customerId,
+    });
+
+    await logAudit({
+      action: "CREATE_TICKET",
+      userId: req.user.id,
+      customerId: req.user.customerId,
+      metadata: { title: ticket.title },
     });
 
     res.status(201).json({ ticket });

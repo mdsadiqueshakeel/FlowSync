@@ -13,12 +13,20 @@ router.get("/tickets", auth(), withTenant(Ticket), async (req, res) => {
 
 
 router.get("/screens", auth(), (req, res) => {
-  const { customerId } = req.user;
+  const { customerId, role } = req.user;
+
   const config = registry.find(r => r.tenant === customerId);
+  if (!config) {
+    return res.status(404).json({ message: "Tenant not found" });
+  }
 
-  if (!config) return res.status(404).json({ message: "No screens for this tenant" });
+  const screensForRole = config.screens?.[role]; // Get screens based on user role
+  if (!Array.isArray(screensForRole)) {
+    return res.status(404).json({ message: "No screens for this role" });
+  }
 
-  res.json({ screens: config.screens });
+  res.json({ screens: screensForRole });
 });
+
 
 module.exports = router;

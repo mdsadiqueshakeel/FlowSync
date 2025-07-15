@@ -14,10 +14,16 @@ export default defineConfig({
       shared: ['react', 'react-dom'],
     }),
   ],
+  // PostCSS configuration is handled by postcss.config.js
   build: {
     target: 'esnext',
     minify: false,
     cssCodeSplit: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   server: {
     port: 5001,
