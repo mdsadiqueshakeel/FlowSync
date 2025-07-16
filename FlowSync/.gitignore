@@ -1,1 +1,28 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Builds
+dist/
+build/
+.vite/
+coverage/
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# VSCode / JetBrains
+.vscode/
+.idea/
+
+# Docker volumes
+mongo_data/
+n8n_data/
