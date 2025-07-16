@@ -12,7 +12,10 @@ const SupportTickets = () => {
         const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/me/tickets`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        setTickets(res.data.tickets);
+        setTickets(
+  [...res.data.tickets].sort((b, a) => new Date(a.createdAt) - new Date(b.createdAt))
+);
+
       } catch (err) {
         console.error("Failed to load tickets:", err);
       }

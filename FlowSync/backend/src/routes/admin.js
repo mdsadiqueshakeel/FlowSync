@@ -60,6 +60,7 @@ router.patch("/tickets/:id", auth(), permit("Admin"), async (req, res) => {
 router.get("/audit-logs", auth(), permit("Admin"), async (req, res) => {
   const logs = await AuditLog.find({ customerId: req.user.customerId })
     .sort({ createdAt: -1 })
+    .populate("userId", "email")
     .limit(100);
   res.json({ logs });
 });

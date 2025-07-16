@@ -13,7 +13,12 @@ const TicketsApp = () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      setTickets(res.data.tickets);
+      setTickets(
+  [...res.data.tickets].sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  )
+);
+
     } catch (err) {
       console.error("❌ Error fetching tickets:", err.message);
     }

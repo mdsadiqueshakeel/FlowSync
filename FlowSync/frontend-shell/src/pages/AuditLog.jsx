@@ -40,10 +40,10 @@ const AuditLog = () => {
             {logs.map((log, i) => (
               <tr key={i}>
                 <td className="px-6 py-4 text-sm">{log.action}</td>
-                <td className="px-6 py-4 text-sm">{log.userId}</td>
+                <td className="px-6 py-4 text-sm">{log.userId?.email || "-"}</td>
                 <td className="px-6 py-4 text-sm">{log.customerId}</td>
                 <td className="px-6 py-4 text-sm">
-                  {new Date(log.timestamp).toLocaleString()}
+                  {new Date(log.updatedAt).toLocaleString()}
                 </td>
               </tr>
             ))}
