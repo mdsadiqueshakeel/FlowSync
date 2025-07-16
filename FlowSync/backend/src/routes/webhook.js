@@ -31,16 +31,17 @@ router.post("/ticket-done", async (req, res) => {
   await ticket.save();
 
   // 🧾 Log audit
-  await AuditLog.create({
-    action: "Webhook Status Update",
-    userId: null, // no user involved in webhook
-    tenant: ticket.customerId,
-    metadata: {
-      ticketId,
-      newStatus: status,
-      via: "n8n webhook",
-    },
-  });
+await AuditLog.create({
+  action: "WEBHOOK_UPDATE",
+  customerId: ticket.customerId,
+  metadata: {
+    ticketId,
+    newStatus: status,
+    via: "n8n webhook",
+  },
+});
+
+
 
   res.json({ message: "Ticket status updated via webhook" });
 });

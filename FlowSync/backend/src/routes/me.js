@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../middlewares/auth");
-const registry = require("../../../registry.json");
+const registry = require("../../registry.json");
 
 const Ticket = require("../models/Ticket");
 const withTenant = require("../middlewares/withTenant");
