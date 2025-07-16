@@ -80,6 +80,8 @@ FlowSync/
 
 ##  Architecture Diagram
 
+> ⚠️ This Mermaid diagram is best viewed in VS Code or supported Markdown renderers. GitHub doesn't render it.
+
 ```mermaid
 graph TD
     User --> |1. Access Frontend| FrontendShell
