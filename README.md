@@ -84,15 +84,15 @@ FlowSync/
 
 ```mermaid
 graph TD
-    User --> |1. Access Frontend| FrontendShell
-    FrontendShell --> |2. Fetch Screens| BackendAPI
-    BackendAPI --> |3. Get Registry Data| RegistryJSON
-    FrontendShell --> |4. Lazy Load MF| SupportTicketsApp
-    User --> |5. Create Ticket| BackendAPI
-    BackendAPI --> |6. Trigger Workflow| n8n
-    n8n --> |7. Webhook Callback| BackendAPI
-    BackendAPI --> |8. Update Mongo| MongoDB
-    BackendAPI --> |9. Push to UI| FrontendShell
+    User --> | Access Frontend| FrontendShell
+    FrontendShell --> | Fetch Screens| BackendAPI
+    BackendAPI --> | Get Registry Data| RegistryJSON
+    FrontendShell --> | Lazy Load MF| SupportTicketsApp
+    User --> | Create Ticket| BackendAPI
+    BackendAPI --> | Trigger Workflow| n8n
+    n8n --> | Webhook Callback| BackendAPI
+    BackendAPI --> | Update Mongo| MongoDB
+    BackendAPI --> | Push to UI| FrontendShell
     subgraph Docker Services
         MongoDB
         BackendAPI
