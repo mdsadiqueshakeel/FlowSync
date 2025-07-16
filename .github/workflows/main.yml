@@ -22,10 +22,10 @@ jobs:
 
       - name: ✅ Run Lint (Optional)
         run: |
-          cd backend
+          cd FlowSync/backend
           npm run lint || echo "No lint script"
 
       - name: 🧪 Run Jest Tests
         run: |
-          cd backend
+          cd FlowSync/backend
           npm test
