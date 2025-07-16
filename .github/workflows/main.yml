@@ -1,0 +1,31 @@
+name: Node.js CI
+
+on: [push, pull_request]
+
+jobs:
+  backend-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: 🧰 Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install Dependencies
+        run: |
+          cd FlowSync/backend
+          npm install
+
+      - name: ✅ Run Lint (Optional)
+        run: |
+          cd backend
+          npm run lint || echo "No lint script"
+
+      - name: 🧪 Run Jest Tests
+        run: |
+          cd backend
+          npm test
